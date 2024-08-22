@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from cloudinary.models import CloudinaryField
 
 
 STATUS = ((0, "Draft"), (1, "Published"))
@@ -9,6 +10,7 @@ class Post(models.Model):
     slug = models.SlugField(max_length=200, unique=True)
     # on_delete means if a user is deleted all posts will that belongs to this user will be deleted
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='posts')
+    featured_image = CloudinaryField('image', default='placeholder')
     content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
