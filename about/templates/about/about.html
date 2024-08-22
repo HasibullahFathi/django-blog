@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-12 col-md-4 text-center">
             {% if "placeholder" in post.featured_image.url %}
-            <img class="card-img-top" src="{% static 'images/nobody.jpg' %}" width="75%" alt="Profille image">
+            <img class="card-img-top" src="{% static 'images/nobody.jpg' %}" width="75%" alt="placeholder image">
             {% else %}
             <img class="card-img-top" src=" {{ about.profile_image.url }}" alt="{{ about.title }}">
             {% endif %}
